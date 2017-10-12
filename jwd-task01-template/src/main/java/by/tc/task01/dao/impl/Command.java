@@ -25,7 +25,7 @@ class LaptopCreator implements Command{
 		laptop.setCpu((double) obj[4]);
 		laptop.setDisplayInchs((double) obj[5]);
 		return laptop;
-    }
+    	}
 }
  
 class OvenCreator implements Command{
@@ -38,7 +38,7 @@ class OvenCreator implements Command{
 		oven.setHeight((double) obj[4]);
 		oven.setWidth((double) obj[5]);
 		return oven;
-    }
+   	}
 }
  
 class RefrigeratorCreator implements Command{
