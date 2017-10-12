@@ -119,33 +119,52 @@ public class Validator {
 
 	private static boolean checkInt(Object value){
 		try{
-			@SuppressWarnings("unused")
-			int d = (int)value;
+			Integer.parseInt(value.toString());
+			return true;
+		}catch(NumberFormatException E){
+			try{
+				double d = (double)value;
+				if((d - Math.ceil(d))==0){
+					return true;
+				}else{
+					return false;
+				}
+			}
+			catch(ClassCastException e){
+				return false;
+			}
 		}
-		catch(ClassCastException E){
-			return false;
-		}
-		return true;
 	}	
 	private static boolean checkDouble(Object value){
 		try{
-			@SuppressWarnings("unused")
-			double d = (double) value;
-		}
-		catch(ClassCastException E){
-			return false;
-		}
-		return true;
+			Double.parseDouble(value.toString());
+			return true;
+			}
+			catch(NumberFormatException e){
+				return false;
+			}
 	}
 	private static boolean checkStr(Object value){
 		try{
 			@SuppressWarnings("unused")
 			String d = (String)value;
+			return true;
 		}
 		catch(ClassCastException E){
-			return false;
+			try{
+				@SuppressWarnings("unused")
+				char d = (char)value;
+				return true;
+			}catch(ClassCastException e){
+				try{
+					@SuppressWarnings("unused")
+					char[] d = (char[])value;
+					return true;
+				}catch(ClassCastException e2){
+					return false;
+				}
+			}
 		}
-		return true;
 	}
 
 	private static boolean check(Speakers criterion, Object value){
@@ -170,7 +189,7 @@ public class Validator {
 	}
 	private static boolean check(Laptop criterion, Object value){
 		if (criterion.equals(Laptop.CPU)||criterion.equals(Laptop.MEMORY_ROM)){
-			return (checkDouble(value)||checkInt(value));
+			return (checkDouble(value));
 		}
 		else{
 			if(criterion.equals(Laptop.OS)){
@@ -185,7 +204,7 @@ public class Validator {
 	}
 	private static boolean check(Refrigerator criterion, Object value){
 		if (criterion.equals(Refrigerator.OVERALL_CAPACITY)){
-			return (checkDouble(value)||checkInt(value));
+			return (checkDouble(value));
 		}else{
 			if(criterion.equals(Refrigerator.FREEZER_CAPACITY)
 					||criterion.equals(Refrigerator.HEIGHT)
@@ -212,7 +231,7 @@ public class Validator {
 	}
 	private static boolean check(Oven criterion, Object value){
 		if (criterion.equals(Oven.HEIGHT)||criterion.equals(Oven.WIDTH)){
-			return (checkDouble(value)||checkInt(value));
+			return (checkDouble(value));
 		}else{
 			if(criterion.equals(Oven.CAPACITY)
 					||criterion.equals(Oven.DEPTH)

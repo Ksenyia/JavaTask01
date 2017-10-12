@@ -25,7 +25,6 @@ public class Main {
 		PrintApplianceInfo.print(appliance);
 		
 		//////////////////////////////////////////////////////////////////
-		
 		criteriaOven = new Criteria<Oven>();
 		criteriaOven.setApplianceType("Oven");
 		criteriaOven.add(Oven.HEIGHT, 200);
@@ -46,8 +45,9 @@ public class Main {
 		appliance = service.find(criteriaTabletPC);
 
 		PrintApplianceInfo.print(appliance);
+		
 
-//////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////
 
 	}
 

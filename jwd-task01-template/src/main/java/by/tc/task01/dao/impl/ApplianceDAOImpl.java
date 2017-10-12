@@ -1,6 +1,7 @@
 package by.tc.task01.dao.impl;
 
 import java.io.BufferedReader;
+import java.io.File;
 //////
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 	public <E> Appliance find(Criteria<E> criteria) {
 		
 		Appliance appliance = null;
-		String file = "src//main//resources//appliances_db.txt";
+		String file = "src"+File.separator +"main" +File.separator +"resources"+ File.separator + "appliances_db.txt";
 		BufferedReader bufferedReader = null;
 		try {   
 			bufferedReader = new BufferedReader(new FileReader(file));
