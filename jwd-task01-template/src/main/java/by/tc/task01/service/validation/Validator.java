@@ -143,7 +143,7 @@ public class Validator {
 			catch(NumberFormatException e){
 				return false;
 			}
-	}
+		}
 	private static boolean checkStr(Object value){
 		try{
 			@SuppressWarnings("unused")
