@@ -82,20 +82,20 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 	protected Object[] getParametr(String applianceString){
 		Object[] obj = new Object[6];
 		Pattern pattern = Pattern.compile("(=([0-9.a-zA-Z-]+),)|(=([0-9.a-zA-Z-]+|);)");
-        Matcher matcher = pattern.matcher(applianceString);
-        int i = 0;
-        while(matcher.find()){
-        	Pattern pattern2 = Pattern.compile("([0-9.a-zA-Z-]+)");
-        	Matcher matcher2 = pattern2.matcher(matcher.group());
-        	if(matcher2.find()){
-    			if(matcher2.group().matches("[0-9.]+")){
-            		obj[i] =  Double.parseDouble(matcher2.group());
-    			}else{
-    				obj[i] = matcher2.group();
-    			}
-        		i++;
-        	}
-        }
+        	Matcher matcher = pattern.matcher(applianceString);
+        	int i = 0;
+		while(matcher.find()){
+			Pattern pattern2 = Pattern.compile("([0-9.a-zA-Z-]+)");
+			Matcher matcher2 = pattern2.matcher(matcher.group());
+			if(matcher2.find()){
+				if(matcher2.group().matches("[0-9.]+")){
+				obj[i] =  Double.parseDouble(matcher2.group());
+				}else{
+					obj[i] = matcher2.group();
+				}
+				i++;
+			}
+		}
 		return obj;
 	}
 
